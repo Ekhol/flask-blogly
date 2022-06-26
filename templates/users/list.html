@@ -1,0 +1,17 @@
+{% extends 'temp.html' %}
+
+{% block content %}
+
+<h1>Users</h1>
+
+<ul>
+    {% for user in users %}
+    <li>
+        <a href="/users/{{ user.id }}">{{ user.full_name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<p><a href="/users/new">Add New User</a></p>
+
+{% endblock %}

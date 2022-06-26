@@ -1,0 +1,20 @@
+{% extends 'temp.html' %}
+
+{% block content %}
+
+<h1>{{ user.full_name }}</h1>
+
+{% if user.image_url %}
+<div>
+    <img src="{{ user.image_url }}" alt="{{ user.full_name }}">
+</div>
+{% endif %}
+
+<div>
+    <h2>{{ user.full_name }}</h2>
+    <form>
+        <button formaction="/users/{{ user.id }}/edit" formmethod="GET">Edit?</button>
+        <button formaction="/users/{{ user.id }}/delete" formmethod="POST">Delete</button>
+    </form>
+</div>
+{% endblock %}
