@@ -1,0 +1,22 @@
+{% extends 'temp.html' %}
+{% block content %}
+<h1>Edit Existing Post</h1>
+
+<form method="POST" action="/posts/{{ post.id }}/edit">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" name="title" value="{{ post.title }}">
+    </div>
+
+    <div>
+        <label for="content">Content</label>
+        <textarea id="content" name="content">{{ post.content }}</textarea>
+    </div>
+
+    <div>
+        <button type="submit">Submit Changes</button>
+        <a href="/users/{{ post.user_id }}">Cancel</a>
+    </div>
+</form>
+
+{% endblock %}

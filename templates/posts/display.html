@@ -1,0 +1,14 @@
+{% extends 'temp.html' %}
+{% block content %}
+<h1>{{ post.title }}</h1>
+
+<p>{{ post.content }}</p>
+<p><i>By {{ post.user.full_name }} on {{ post.clean_date }}</i></p>
+
+<form>
+    <button class="edit" formmethod="GET" formaction="/posts/{{ post.id }}/edit">Edit Post</button>
+    <button class="delete" formmethod="POST" formaction="/posts/{{ post.id }}/delete">Delete</button>
+    <button class="cancel" formmethod="GET" formaction="/users/{{ post.user_id}}">Cancel</button>
+</form>
+
+{% endblock %}

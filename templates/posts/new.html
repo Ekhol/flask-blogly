@@ -1,0 +1,23 @@
+{% extends 'temp.html' %}
+{% block content %}
+
+<h1>New Post by {{ user.full_name }}</h1>
+
+<form method="POST">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" name="title">
+    </div>
+
+    <div>
+        <label for="content">Content</label>
+        <textarea id="content" name="content"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Submit Post</button>
+        <a href="/users/{{ user.id }}">Cancel</a>
+    </div>
+</form>
+
+{% endblock %}

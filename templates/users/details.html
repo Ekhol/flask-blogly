@@ -13,8 +13,21 @@
 <div>
     <h2>{{ user.full_name }}</h2>
     <form>
-        <button formaction="/users/{{ user.id }}/edit" formmethod="GET">Edit?</button>
+        <button formaction="/users/{{ user.id }}/edit" formmethod="GET">Edit</button>
         <button formaction="/users/{{ user.id }}/delete" formmethod="POST">Delete</button>
     </form>
+
+    <h2>Posts</h2>
+
+    <ul>
+        {% for post in user.posts %}
+        <li>
+            <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+            <p>{{ post.clean_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/users/{{ user.id }}/posts/new">Add New Post</a></p>
 </div>
 {% endblock %}
