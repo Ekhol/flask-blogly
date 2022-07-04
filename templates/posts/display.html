@@ -5,6 +5,15 @@
 <p>{{ post.content }}</p>
 <p><i>By {{ post.user.full_name }} on {{ post.clean_date }}</i></p>
 
+{% if post.tags %}
+<p>
+    Tags:
+    {% for tag in post.tags %}
+    <a href="/tags/{{ tag.id }}"><i>{{ tag.name }}</i></a>
+    {% endfor %}
+</p>
+{% endif %}
+
 <form>
     <button class="edit" formmethod="GET" formaction="/posts/{{ post.id }}/edit">Edit Post</button>
     <button class="delete" formmethod="POST" formaction="/posts/{{ post.id }}/delete">Delete</button>

@@ -14,6 +14,14 @@
     </div>
 
     <div>
+        {% for tag in tags %}
+        <input type="checkbox" value="{{ tag.id }}" id="tag_{{ tag.id }}" name="tags" {% if tag in post.tags %}checked{%
+            endif %}>
+        <label for="tag_{{ tag.id }}">{{ tag.name }}</label>
+        {% endfor %}
+    </div>
+
+    <div>
         <button type="submit">Submit Changes</button>
         <a href="/users/{{ post.user_id }}">Cancel</a>
     </div>
